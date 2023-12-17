@@ -77,6 +77,8 @@ namespace G435BatteryApproximate
                 int batteryUsageCorrectionPercentage = int.Parse(setting["Battery"]["batteryUsageCorrectionPercentage"]);
                 int batteryHealthPercentage = int.Parse(setting["Battery"]["batteryHealthPercentage"]);
 
+                batteryUsageHour = Math.Abs(batteryUsageHour);
+                batteryUsageCorrectionPercentage = Math.Abs(batteryUsageCorrectionPercentage) > 100 ? 100 : Math.Abs(batteryUsageCorrectionPercentage);
                 batteryHealthPercentage = Math.Abs(batteryHealthPercentage) > 100 ? 100 : Math.Abs(batteryHealthPercentage);
 
                 var emptyBatteryDate = GetApproximateEmptyBatteryDateTime(
